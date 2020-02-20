@@ -43,15 +43,16 @@ def get_stack_jobs_data() -> List[Dict]:
         currentJob["created_at"] = job["published"]
         currentJob["company"] = job["author"]
         currentJob["company_url"] = None
-        currentJob["title"] = job["title"]
-        currentJob["description"] = job["summary"]
-        currentJob["how_to_apply"] = None
-        currentJob["company_logo"] = None
 
         try:
             currentJob["location"] = job["location"]
         except KeyError:
             currentJob["location"] = None
+
+        currentJob["title"] = job["title"]
+        currentJob["description"] = job["summary"]
+        currentJob["how_to_apply"] = None
+        currentJob["company_logo"] = None
 
         allJobs.append(currentJob)
         currentJob = {}

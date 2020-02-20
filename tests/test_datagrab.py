@@ -40,6 +40,17 @@ def test_jobs_data(get_data):
     assert  contract_found and full_time_found
 
 
+def test_jobs_data(get_data_stack):
+    # any real data should have both full time and Contract
+    # jobs in the list, assert this
+    data = get_data_stack
+    locationFound = False
+    locationChoice = "Indianapolis, IN"
+    for item in data:
+        if item['location'] == locationChoice:
+            locationFound = True
+    assert locationFound
+
 # old version from sprint 1
 # def test_save_data():
 #     # second required test
